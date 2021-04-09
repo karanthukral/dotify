@@ -12,7 +12,7 @@ tap 'homebrew/cask-versions' || true
 tap 'homebrew/core' || true
 
 # fonts
-cask 'font-sf-mono-nerd-font'
+cask 'font-hack'
 
 # version control
 brew 'gist'
