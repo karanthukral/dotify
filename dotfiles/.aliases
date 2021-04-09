@@ -1,0 +1,12 @@
+# All Other Aliases
+alias bx="bundle exec"
+alias subl="open -a \"Sublime Text\""
+alias atomb="open -a \"Atom Beta\""
+alias vi="vim"
+alias gityolo= "git add .; git commit --amend --no-edit; git push origin +$(git rev-parse --abbrev-ref HEAD)"
+alias knife="BUNDLE_GEMFILE=/Users/kt/.chef/Gemfile bundle exec knife"
+alias kube="kubectl"
+alias fire-minikube="minikube delete && minikube start --vm-driver=hyperkit --kubernetes-version=v1.9.0"
+
+# Make sure tmux uses all the colours
+alias tmux="TERM=screen-256color tmux -2"

@@ -3,7 +3,6 @@ cask_args appdir: '/Applications'
 # taps
 tap 'beeftornado/rmtree' || true
 tap 'buo/cask-upgrade' || true
-tap 'epk/epk' || true
 tap 'github/gh' || true
 tap 'homebrew/bundle' || true
 tap 'homebrew/cask' || true
@@ -79,3 +78,12 @@ cask 'ngrok'
 cask 'rectangle'
 cask 'tuple'
 cask 'visual-studio-code'
+cask 'bartender'
+cask 'airbuddy'
+cask 'alfred'
+cask '1password'
+cask 'fantastical'
+cask 'brave-browser'
+cask 'private-internet-access'
+cask 'vlc'
+cask 'zoom'

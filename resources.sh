@@ -57,6 +57,28 @@ function SSH_Keygen() {
   read email
   ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519 -C $email
   eval "$(ssh-agent -s)"
-  cat sshconfig > ~/.ssh/config
+  cat dotfiles/sshconfig > ~/.ssh/config
   ssh-add -K ~/.ssh/id_ed25519
+}
+
+function symlink_dot_files() {
+  ########## Variables
+  dir=~/Development/src/github.com/karanthukral/dotify/dotfiles                    # dotfiles directory
+  olddir=~/dotfiles_old             # old dotfiles backup directory
+  files="vimrc zshrc gitconfig tmux.conf zpreztorc zprofile"    # list of files/folders to symlink in homedir
+
+  ##########
+
+  # create dotfiles_old in homedir
+  echo "Creating $olddir for backup of any existing dotfiles in ~"
+  mkdir -p $olddir
+  echo "...done"
+
+  # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
+  for file in $files; do
+    echo "Moving any existing dotfiles from ~ to $olddir"
+    mv ~/.$file $olddir/
+    echo "Creating symlink to $file in home directory."
+    ln -s $dir/$file ~/.$file
+  done
 }
