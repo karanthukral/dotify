@@ -7,6 +7,7 @@ alias gityolo= "git add .; git commit --amend --no-edit; git push origin +$(git 
 alias knife="BUNDLE_GEMFILE=/Users/kt/.chef/Gemfile bundle exec knife"
 alias kube="kubectl"
 alias fire-minikube="minikube delete && minikube start --vm-driver=hyperkit --kubernetes-version=v1.9.0"
+alias cdgithub="cd ~/src/github.com/karanthukral"
 
 # Make sure tmux uses all the colours
 alias tmux="TERM=screen-256color tmux -2"

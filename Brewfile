@@ -68,6 +68,7 @@ brew 'yamllint'
 brew 'yq'
 brew 'zlib'
 brew 'zsh'
+brew 'mas' # command line interface for mac app store
 
 # applications
 cask 'appcleaner'
