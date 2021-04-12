@@ -63,7 +63,7 @@ function SSH_Keygen() {
 
 function symlink_dot_files() {
   ########## Variables
-  dir=~/Development/src/github.com/karanthukral/dotify/dotfiles                    # dotfiles directory
+  dir=$HOME/src/github.com/karanthukral/dotify/dotfiles                    # dotfiles directory
   olddir=~/dotfiles_old             # old dotfiles backup directory
   files="vimrc zshrc gitconfig tmux.conf"    # list of files/folders to symlink in homedir
 
