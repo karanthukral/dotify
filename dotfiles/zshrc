@@ -56,6 +56,11 @@ fi
 
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 
+# update prompt to show k8s info
+source /usr/local/opt/kube-ps1/share/kube-ps1.sh
+PROMPT='$(kube_ps1)'$PROMPT
+KUBE_PS1_SYMBOL_ENABLE=false # disable k8s icon
+
 # shellcheck disable=SC1091
 if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc' ]; then
   source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc';

@@ -65,7 +65,7 @@ function symlink_dot_files() {
   ########## Variables
   dir=$HOME/src/github.com/karanthukral/dotify/dotfiles                    # dotfiles directory
   olddir=~/dotfiles_old             # old dotfiles backup directory
-  files="vimrc zshrc gitconfig tmux.conf"    # list of files/folders to symlink in homedir
+  files="vimrc zshrc gitconfig tmux.conf gitignore"    # list of files/folders to symlink in homedir
 
   ##########
 

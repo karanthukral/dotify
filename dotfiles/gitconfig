@@ -3,7 +3,7 @@
 	email = karanthukral@gmail.com
 	signingkey = 39B50864A94C84DF
 [core]
-	excludesfile = /Users/kt/.gitignore_global
+	excludesfile = /Users/kt/.gitignore
 	quotepath = false
 	editor = vim
 	commitGraph = true

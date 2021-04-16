@@ -69,6 +69,8 @@ brew 'yq'
 brew 'zlib'
 brew 'zsh'
 brew 'mas' # command line interface for mac app store
+brew 'kind'
+brew 'kube-ps1' # command line prompt to show context/ns for bash and zsh
 
 # applications
 cask 'appcleaner'
