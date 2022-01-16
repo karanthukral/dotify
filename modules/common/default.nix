@@ -4,7 +4,7 @@ let
   cfg = config.karanthukral.common;
 in {
   options = {
-    kthukal.common = {
+    karanthukral.common = {
       enable = mkEnableOption "Common configuration";
     };
   };

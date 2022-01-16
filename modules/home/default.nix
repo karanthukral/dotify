@@ -7,7 +7,7 @@ let
   cfg = config.karanthukral.home;
 in {
   options = {
-    kthukal.home = {
+    karanthukral.home = {
       user = mkOption {
         type = types.str;
         default = "kt";
@@ -40,6 +40,33 @@ in {
         openssh.authorizedKeys.keys = keys;
       };
     };
+
+  home-manager.users."${cfg.user}" = {
+	  home.file = {
+      ".config" = {
+        source = ../../dotfiles;
+        recursive = true;
+      };
+		  ".zshrc" = {
+			  source = ../../dotfiles/zshrc;
+		  };
+      ".aliases" = {
+			  source = ../../dotfiles/aliases;
+		  };
+      ".gitconfig" = {
+			  source = ../../dotfiles/gitconfig;
+		  };
+      ".gitignore" = {
+			  source = ../../dotfiles/gitignore;
+		  };
+      ".tmux.conf" = {
+			  source = ../../dotfiles/tmux.conf;
+		  };
+      ".vimrc" = {
+			  source = ../../dotfiles/vimrc;
+		  };
+	  };
+  };
 
     # home-manager.users."${cfg.user}" = {
     #   home.file = {
