@@ -12,8 +12,11 @@ in {
   config = mkIf cfg.enable {
     nix = {
       package = pkgs.nixUnstable;
+      # nix options for derivations to persist garbage collection
       extraOptions = ''
         experimental-features = nix-command flakes
+        keep-outputs = true
+        keep-derivations = true
       '';
 
       gc = {
@@ -74,6 +77,18 @@ in {
       unzip
       wget
       zsh
+      direnv
+      nix-direnv
+    ];
+
+    environment.pathsToLink = [
+      "/share/nix-direnv"
+    ];
+
+    # if you also want support for flakes (this makes nix-direnv use the
+    # unstable version of nix):
+    nixpkgs.overlays = [
+      (self: super: { nix-direnv = super.nix-direnv.override { enableFlakes = true; }; } )
     ];
 
     programs = {
