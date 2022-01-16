@@ -79,6 +79,10 @@ in {
       zsh
       direnv
       nix-direnv
+      kubectl
+      doctl
+      go
+      gopls
     ];
 
     environment.pathsToLink = [
