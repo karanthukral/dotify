@@ -4,7 +4,7 @@ let
   keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAb1Orql8g/EFyvMomHgZ3FOdfyJGWsrSbvhaDM4Zj3s kthukral@digitalocean.com"
   ];
-  cfg = config.kthukral.home;
+  cfg = config.karanthukral.home;
 in {
   options = {
     kthukal.home = {

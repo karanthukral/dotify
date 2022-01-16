@@ -4,10 +4,10 @@
     # ./networking.nix # generated at runtime by nixos-infect
   ];
 
-  kthukral = {
-    common.enable = true
+  karanthukral = {
+    common.enable = true;
     home = {
-      "kthukral"
+      user = "kthukral";
     };
   };
 

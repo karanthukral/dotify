@@ -1,7 +1,7 @@
 { lib, config, pkgs, ... }:
 with lib;
 let
-  cfg = config.kthukral.common;
+  cfg = config.karanthukral.common;
 in {
   options = {
     kthukal.common = {
