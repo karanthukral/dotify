@@ -6,10 +6,42 @@
 
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
 
-   home-manager = {
+    home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = {self, nixpkgs}: {};
+
+  outputs = { self, ... }@inputs:
+    with inputs;
+    let
+      mkSystem = pkgs: system: machine:
+        pkgs.lib.nixosSystem {
+          system = system;
+          modules = builtins.attrValues self.nixosModules ++ [
+            (./machines + "/${machine}/configuration.nix")
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+              };
+
+              nixpkgs.overlays = [
+                inputs.emacs-overlay.overlay
+              ];
+            }
+          ];
+          specialArgs = { inherit inputs; };
+        };
+    in {
+      nixosModules = builtins.listToAttrs (map (m: {
+        name = m;
+        value = import (./modules + "/${m}");
+      }) (builtins.attrNames (builtins.readDir ./modules)));
+
+      nixosConfigurations = {
+        wrk = mkSystem inputs.nixpkgs "x86_64-linux" "wrk";
+      };
+    };
 }
