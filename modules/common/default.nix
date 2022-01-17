@@ -42,10 +42,6 @@ in {
 
     security.sudo.wheelNeedsPassword = false;
 
-    networking.firewall = {
-      allowPing = true;
-    };
-
     virtualisation = {
       docker.enable = true;
       # podman.enable = true;

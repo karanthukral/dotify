@@ -20,7 +20,7 @@ git clone https://github.com/zsh-users/zsh-history-substring-search \
 ok
 
 running "installing zsh-fast-syntax-highlighting"
-git clone https://github.com/zdharma/fast-syntax-highlighting.git \
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git \
   ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting
 ok
 

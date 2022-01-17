@@ -20,7 +20,9 @@
   environment.systemPackages = with pkgs; [
     fly
     vault
+    openconnect
   ];
 
-  networking.hostName = "nix-test";
+  networking.hostName = "workstation";
+  users.defaultUserShell = pkgs.zsh;
 }
