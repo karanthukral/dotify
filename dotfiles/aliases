@@ -11,3 +11,8 @@ alias cdgithub="cd ~/src/github.com/karanthukral"
 
 # Make sure tmux uses all the colours
 alias tmux="TERM=screen-256color tmux -2"
+
+# Digital Ocean aliases
+alias cddo="cd /home/kthukral/src/github.internal.digitalocean.com/digitalocean"
+alias dok8s="cd /home/kthukral/src/github.internal.digitalocean.com/digitalocean/delik8s"
+alias doapps="cd /home/kthukral/src/github.internal.digitalocean.com/digitalocean/cthulhu/docode/src/do/teams/paas/apps"

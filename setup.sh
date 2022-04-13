@@ -3,12 +3,11 @@
 source resources.sh
 source linux.sh
 
+
 bot "hello! welcome to your new computer"
 bot "let's get going! "
 
 # install linux pkgs
-install_pkgs
-
 export GOPATH=$HOME
 mkdir -p $GOPATH/src $GOPATH/pkg $GOPATH/bin
 
@@ -57,15 +56,7 @@ ok
 bot "setting zsh as the user shell"
 chsh -s $(which zsh)
 
-symlink_dot_files
-
 running "sourcing zshrc"
 source ~/.zshrc
 ok
 
-SSH_Keygen
-bot "Setup complete"
-
-bot "Add the following sshkey to Github at https://github.com/settings/ssh/new"
-cat ~/.ssh/id_ed25519.pub
-ok
