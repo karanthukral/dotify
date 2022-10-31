@@ -47,7 +47,7 @@ mkdir -p $GOPATH/src $GOPATH/pkg $GOPATH/bin
  rbenv install -s $RUBY_VERSION
  rbenv global $RUBY_VERSION
  ok rbenv
- 
+
 running "npm settings"
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
@@ -82,10 +82,10 @@ git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins.git \
   ~/.oh-my-zsh/custom/plugins/autoupdate
 ok
 
-running "downloading Argonaut.itermcolors"
-wget --quiet https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Argonaut.itermcolors -P ~/Downloads/
-wget --quiet https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/terminal/Argonaut.terminal -P ~/Downloads/
-ok "Argonaut.itermcolors"
+# running "downloading Argonaut.itermcolors"
+# wget --quiet https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/schemes/Argonaut.itermcolors -P ~/Downloads/
+# wget --quiet https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/terminal/Argonaut.terminal -P ~/Downloads/
+# ok "Argonaut.itermcolors"
 
 bot "setting zsh as the user shell"
 CURRENTSHELL=$(dscl . -read /Users/$USER UserShell | awk '{print $2}')

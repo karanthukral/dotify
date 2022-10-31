@@ -64,6 +64,8 @@ subup = submodule update --init --recursive
 [credential]
 	helper = 
 	helper = store --file /opt/dev/var/private/git_credential_store
+	helper = osxkeychain
+	helper = osxkeychain
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process

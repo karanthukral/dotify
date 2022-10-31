@@ -12,10 +12,6 @@ kubectl-short-aliases() {
   alias kex='exec-with-bash-if-available $(list-running-containers-by-pod | fzf)'
   alias kx='exec-pod'
   alias kdesc='k describe $(k get pods -o name | fzf)'
-
-  alias t1ne13='k --context "tier1-na-ne1-3"'
-  alias rdst1c1='k --context "redis-tier1-us-central1-1" --namespace shopify-core'
-  alias rdst1e1='k --context "redis-tier1-us-east1-1" --namespace shopify-core'
 }
 
 # USAGE: exec-pod FUZZY_NAME [CONTAINER_NAME]
