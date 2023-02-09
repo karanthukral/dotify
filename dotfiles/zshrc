@@ -8,7 +8,6 @@
 export ZSH="/Users/kt/.oh-my-zsh"
 export GOPATH=$HOME
 export GO111MODULE=on
-export GOPRIVATE="github.com/Shopify/*"
 
 export PATH="$HOME/.bin:$PATH"
 export PATH="/Applications/chktex-1.6.4/chktex:$PATH"

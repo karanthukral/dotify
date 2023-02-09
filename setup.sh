@@ -68,7 +68,7 @@ git clone https://github.com/zsh-users/zsh-history-substring-search \
 ok
 
 running "installing zsh-fast-syntax-highlighting"
-git clone https://github.com/zdharma/fast-syntax-highlighting.git \
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting \
   ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting
 ok
 
@@ -89,9 +89,9 @@ ok
 
 bot "setting zsh as the user shell"
 CURRENTSHELL=$(dscl . -read /Users/$USER UserShell | awk '{print $2}')
-if [[ "$CURRENTSHELL" != "/usr/local/bin/zsh" ]]; then
-  bot "setting newer homebrew zsh (/usr/local/bin/zsh) as your shell (password required)"
-  sudo dscl . -change /Users/$USER UserShell $SHELL /usr/local/bin/zsh > /dev/null 2>&1
+if [[ "$CURRENTSHELL" != "/opt/homebrew/bin/zsh" ]]; then
+  bot "setting newer homebrew zsh (/opt/homebrew/bin/zsh) as your shell (password required)"
+  sudo dscl . -change /Users/$USER UserShell $SHELL /opt/homebrew/bin/zsh > /dev/null 2>&1
   ok
 fi
 
@@ -100,9 +100,9 @@ symlink_dot_files
 running "sourcing zshrc"
 source ~/.zshrc
 ok
-SSH_Keygen
+# SSH_Keygen
 bot "Setup complete"
 
-bot "Add the following sshkey to Github at https://github.com/settings/ssh/new"
-cat ~/.ssh/id_ed25519.pub
-ok
+# bot "Add the following sshkey to Github at https://github.com/settings/ssh/new"
+# cat ~/.ssh/id_ed25519.pub
+# ok
