@@ -1,0 +1,116 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+
+#gcloud
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+
+export ZSH_DISABLE_COMPFIX=true
+
+export ZSH="/Users/karan.thukral/.oh-my-zsh"
+export GOPATH=$HOME
+export GO111MODULE=on
+export GOPRIVATE="github.snooguts.net"
+
+export PATH="$HOME/.bin:$PATH"
+export PATH="/Applications/chktex-1.6.4/chktex:$PATH"
+export PATH=/usr/local/bin:$PATH
+export PATH="$GOPATH/bin:$PATH"
+export PATH="${PATH}:${HOME}/.krew/bin"
+export PATH="/opt/homebrew/sbin:$PATH"
+
+# gnu coreutils
+export PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
+
+# recommended by brew doctor
+export PATH="/usr/local/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+
+export PATH="${PATH}:/Users/karan.thukral/.local/bin"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+export EDITOR=vim
+export DOCKER_BUILDKIT=1
+
+# shellcheck disable=SC2034
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+export UPDATE_ZSH_DAYS=5
+
+# reddit sourcegraph
+export SRC_ENDPOINT=https://sourcegraph.build.ue1.snooguts.net
+export SRC_ACCESS_TOKEN=sgp_1f8d6db375bcb3bd_959b9d96e09952c22f977e47fdeb0a2f72cf2ed2
+
+# shellcheck disable=SC2034
+plugins=(
+  autojump
+  autoupdate
+  colorize
+  colored-man-pages
+  docker
+  fast-syntax-highlighting
+  git
+  history-substring-search
+  vscode
+  you-should-use
+  zsh-autosuggestions
+)
+
+# shellcheck disable=SC1090
+source $ZSH/oh-my-zsh.sh
+
+# Import Aliases
+if [ -f ~/.aliases ]; then
+  source ~/.aliases
+else
+  print "404: ~/.aliases not found."
+fi
+
+# Source
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+
+# update prompt to show k8s info
+#source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
+#PS1='$(kube_ps1)'$PS1
+#KUBE_PS1_SYMBOL_ENABLE=false # disable k8s icon
+
+# shellcheck disable=SC1091
+if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc' ]; then
+  source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc';
+fi
+
+# shellcheck disable=SC1091
+if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc' ]; then
+  source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc';
+fi
+
+export KUBECONFIG=/Users/karan.thukral/.kube/config
+
+for file in /Users/karan.thukral/src/github.com/karanthukral/dotify/dotfiles/*.bash; do source ${file}; done
+kubectl-short-aliases
+
+autoload -U +X bashcompinit && bashcompinit
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  #source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
+
+# Add the following to your .zshrc file
+source <(kubectl completion zsh)
+
+export AWS_SDK_LOAD_CONFIG=true
+eval "$(starship init zsh)"
+
+
+[[ -s "/Users/karan.thukral/.gvm/scripts/gvm" ]] && source "/Users/karan.thukral/.gvm/scripts/gvm"
+
